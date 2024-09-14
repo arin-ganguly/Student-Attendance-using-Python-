@@ -13,10 +13,7 @@ def mark_attendance():
     else:
         messagebox.showwarning("Not Register",f"{name} not found!Please Register.")
         roll = entry_roll.get()
-        # found = 0
-        if roll in df['Roll'].values:
-            messagebox.showwarning("Incorrect roll",f"{roll} already exists!")
-        else:
+        if roll:
             new_student = pd.DataFrame({'Name':[name],'Roll':[roll],'Attendance':['Present']})
             df = pd.concat([df,new_student],ignore_index=True)
 
